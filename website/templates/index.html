@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Image Denoiser</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header>
+        <strong>Image Denoiser</strong>
+    </header>
+
+    <main>
+
+        <div class="hero">
+            
+
+            <h1>See the difference.</h1>
+
+            <p class="intro">
+                Upload a noisy image and see the denoised result.
+            </p>
+        </div>
+
+        <section class="workspace">
+
+            <aside>
+                <p class="eyebrow">01 / YOUR IMAGE</p>
+
+                <h2>Start with an image</h2>
+
+                <form id="uploadForm">
+
+                    <label class="upload" for="image">
+                        <span class="plus">＋</span>
+
+                        <strong>Choose an image</strong>
+
+                        <span>JPG, PNG  · max 50 MB</span>
+
+                        <input
+                            id="image"
+                            name="image"
+                            type="file"
+                            accept="image/jpeg,image/png"
+                            required
+                        >
+                    </label>
+
+                    <p id="filename">No image selected</p>
+
+                    <button id="submit" type="submit" disabled>
+                        Denoise image ↗
+                    </button>
+
+                </form>
+
+                <p id="status" role="status" aria-live="polite">
+                    Choose an image to begin.
+                </p>
+
+                <p class="note">
+                    Images larger than 512 px are resized.
+                    Both previews show the same processing size.
+                </p>
+            </aside>
+
+            <div class="comparison">
+
+                <div class="section-top">
+                    <p class="eyebrow">02 / BEFORE & AFTER</p>
+
+                    <a
+                        id="download"
+                        hidden
+                        download="denoised-image.png"
+                    >
+                        Download PNG ↓
+                    </a>
+                </div>
+
+                <div class="pair">
+
+                    <figure>
+                        <figcaption>
+                            Original
+                            <span>INPUT</span>
+                        </figcaption>
+
+                        <div class="frame">
+                            <img
+                                id="original"
+                                alt="Original input image"
+                                hidden
+                            >
+
+                            <p id="originalEmpty">
+                                Your input appears here
+                            </p>
+                        </div>
+                    </figure>
+
+                    <figure>
+                        <figcaption>
+                            Denoised
+                            <span>OUTPUT</span>
+                        </figcaption>
+
+                        <div class="frame">
+                            <img
+                                id="result"
+                                alt="Denoised output image"
+                                hidden
+                            >
+
+                            <p id="resultEmpty">
+                                Your result appears here
+                            </p>
+                        </div>
+                    </figure>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script
+        src="{{ url_for('static', filename='app.js') }}"
+        defer
+    ></script>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: #eef1f8;
+    color: #283249;
+}
+
+/* Top header */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 6%;
+    background: #454c83;
+    color: white;
+    text-align: center;
+}
+
+header strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+/* Main page */
+main {
+    max-width: 1150px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+/* Main title area */
+.hero {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hero .eyebrow {
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    margin: 0 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+}
+
+.hero .intro {
+    margin: 0;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+.intro {
+    color: #58657b;
+    line-height: 1.6;
+}
+
+.eyebrow {
+    color: #636a96;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Main workspace */
+.workspace {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #d8deeb;
+    border-radius: 14px;
+}
+
+aside {
+    padding: 24px;
+    background: #f5f4fc;
+    border-right: 1px solid #dedfed;
+}
+
+/* Image upload box */
+.upload {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 25px 12px;
+    background: white;
+    border: 2px dashed #9c97ca;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.upload:hover,
+.upload:focus-within {
+    background: #eeebff;
+    border-color: #7165b3;
+}
+
+.plus {
+    color: #7165b3;
+    font-size: 34px;
+}
+
+.upload span:last-of-type {
+    color: #58657b;
+    font-size: 12px;
+}
+
+.upload input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#filename {
+    overflow-wrap: anywhere;
+    color: #58657b;
+    font-size: 14px;
+}
+
+/* Denoise button */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #7165b3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+    background: #5c5198;
+}
+
+button:disabled {
+    background: #b5b3c6;
+    cursor: not-allowed;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #258087;
+    outline-offset: 4px;
+}
+
+/* Status message */
+#status {
+    padding: 12px;
+    background: #e8e5f6;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.note {
+    color: #58657b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Before and after section */
+.comparison {
+    min-width: 0;
+    padding: 24px;
+}
+
+.section-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+figure {
+    min-width: 0;
+    margin: 0;
+}
+
+figcaption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #e9edf5;
+    border-radius: 8px 8px 0 0;
+    font-weight: bold;
+}
+
+figure:last-child figcaption {
+    background: #dcf0eb;
+    color: #25675c;
+}
+
+figcaption span {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* Image preview */
+.frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: #f7f9fc;
+    border: 1px solid #dce2ed;
+    border-radius: 0 0 8px 8px;
+}
+
+.frame img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.frame p {
+    padding: 15px;
+    color: #637188;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Download button */
+#download {
+    padding: 10px 14px;
+    background: #dcf0eb;
+    color: #25675c;
+    border-radius: 7px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        border-right: none;
+        border-bottom: 1px solid #dedfed;
+    }
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+    header strong {
+        font-size: 24px;
+    }
+
+    main {
+        margin-top: 25px;
+        padding: 0 14px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .pair {
+        grid-template-columns: 1fr;
+    }
+
+    aside,
+    .comparison {
+        padding: 18px;
+    }
+}
